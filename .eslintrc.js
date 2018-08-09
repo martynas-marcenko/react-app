@@ -9,10 +9,10 @@ module.exports = {
         }
     },
     "rules": {
-        "rules": {
-            "react/jsx-filename-extension": [1, {
-                "extensions": [".js", ".jsx"]
-            }],
-        }
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"]
+        }],
+        "react/prefer-stateless-function": 0,
+        "no-undef": 0
     }
 };
