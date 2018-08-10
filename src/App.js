@@ -18,7 +18,7 @@ class App extends Component {
           />
           <h1 className="App-title">
             {' '}
-            Welcome to React
+            Welcome to React welcome works!
             {' '}
 
           </h1>
