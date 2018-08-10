@@ -27,7 +27,7 @@ class App extends Component {
         </header>
         {' '}
         <p className="App-intro">
-          To get started, edit
+          To get started, editasdasd
           {' '}
           <code>
             {' '}
