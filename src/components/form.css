@@ -1,0 +1,38 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.field {
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+}
+
+.field .label {
+    flex: 0 0 100%;
+    text-align: left;
+}
+
+.control {
+    display: flex;
+    width: 100%;
+}
+
+.form-control {
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    border: solid 0.125rem rgba(7, 24, 51, 0.25);
+    color: #071833;
+    border-radius: 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.1875rem;
+    width: 100%;
+}
+
+.buttonWrapper {
+    margin-top: 2rem;
+}

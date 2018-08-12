@@ -13,6 +13,11 @@ module.exports = {
             "extensions": [".js", ".jsx"]
         }],
         "react/prefer-stateless-function": 0,
-        "no-undef": 0
+        "no-undef": 0,
+        "indent": ["error", 4, {
+            "ignoredNodes": ["JSXElement"]
+        }],
+        "react/jsx-indent": ["error", 4]
+
     }
 };
