@@ -32,7 +32,11 @@ class App extends React.Component {
                     <div className="row">
                         <div className="col-6">
                             <Features addDescription={this.addDescription} />
-
+                            <ul className="features">
+                                <li>one feature</li>
+                                <li>two feature</li>
+                                <li>three feature</li>
+                            </ul>
                         </div>
                         <div className="col-6">
 
