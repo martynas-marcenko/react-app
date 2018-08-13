@@ -1,12 +1,13 @@
 form {
     display: flex;
     flex-wrap: wrap;
+    flex: 1 1 100%;
     margin-bottom: 4rem;
 }
 
 .field {
     display: flex;
-    flex: 0 0 100%;
+    flex: 1 1 50%;
     flex-wrap: wrap;
 }
 
@@ -34,5 +35,7 @@ form {
 }
 
 .buttonWrapper {
-    margin-top: 2rem;
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: flex-end;
 }
