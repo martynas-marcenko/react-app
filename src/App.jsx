@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Features from './components/Features';
 import Result from './components/Result';
-
+import OutputFeatures from './components/OutputFeatures';
 
 
 class App extends React.Component {
@@ -25,6 +25,12 @@ class App extends React.Component {
             features: featureFromForm,
         });
     };
+    deleteFeature = (key) => {
+        //1. Take a copy of state
+        const features = { ...this.state.features };
+        //2. Set what we want to delete
+        features[key]
+    }
     render() {
         return (
             <div className="App">
@@ -32,11 +38,9 @@ class App extends React.Component {
                     <div className="row">
                         <div className="col-6">
                             <Features addDescription={this.addDescription} />
-                            <ul className="features">
-                                <li>one feature</li>
-                                <li>two feature</li>
-                                <li>three feature</li>
-                            </ul>
+                            <div className="features">
+                                {Object.keys(this.state.features).map(key => <OutputFeatures key={key} featureprop={this.state.features[key]} />)}
+                            </div>
                         </div>
                         <div className="col-6">
 

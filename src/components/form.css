@@ -1,8 +1,13 @@
 form {
     display: flex;
+    flex: 0 0 100%;
     flex-wrap: wrap;
-    flex: 1 1 100%;
     margin-bottom: 1rem;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
 }
 
 .field {

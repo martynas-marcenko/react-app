@@ -11,17 +11,18 @@ class Features extends React.Component {
             feature: this.featureRef.current.value,
         }
         this.props.addDescription(description);
+        event.currentTarget.reset();
     }
     render() {
         return (
             <form className="form" onSubmit={this.handleSubmit}>
                 <div className="field">
                     <div className="control">
-                        <input className="form-control" name="feature" ref={this.featureRef} type="text" placeholder="Feature" />
+                        <input className="form-control" name="feature" ref={this.featureRef} type="text" required placeholder="Add feature" />
                     </div>
                 </div>
                 <div className="buttonWrapper">
-                    <button className="ui-button" type="submit">+ Add Description</button>
+                    <button className="ui-button" type="submit">+ Add Feature</button>
                 </div>
             </form>
         );
