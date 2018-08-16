@@ -24,6 +24,9 @@ class Features extends React.Component {
                 <div className="buttonWrapper">
                     <button className="ui-button" type="submit">+ Add Feature</button>
                 </div>
+                <div className="buttonWrapper">
+                    <button className="ui-button" type="submit" onClick={() => this.props.deleteFeature(this.props.index)}>Remove Feature</button>
+                </div>
             </form>
         );
     }

@@ -13,34 +13,43 @@ class App extends React.Component {
         ],
     }
     //We need a method, that updates state. This method is written bellow:
-    addDescription = addDescriptionMethod => {
+    addDescription = FeatureThatHasBeenAddedInFeaturesFormInputFieldAndLabelIncluded => {
         //1. Take copy of the exsiting state
-        const featureFromForm = {
+        const newFeature = {
             ...this.state.features
         };
         //2. Set the new features object to state
-        featureFromForm[`feature${Date.now()}`] = addDescriptionMethod;
+        newFeature[`feature${Date.now()}`] = FeatureThatHasBeenAddedInFeaturesFormInputFieldAndLabelIncluded;
         //3. Set the new state
         this.setState({
-            features: featureFromForm,
+            features: newFeature, //New feature is fx.: feature2018275198275: {feature: name of the feature}
         });
     };
     deleteFeature = (key) => {
         //1. Take a copy of state
-        const features = { ...this.state.features };
-        //2. Set what we want to delete
-        features[key]
-    }
+        const featureState = { ...this.state.features };
+        //2. Update the state
+        featureState[key] = null;
+        //3. Update state
+        this.setState({
+            features: featureState
+        });
+    };
     render() {
         return (
             <div className="App">
                 <div className="container">
                     <div className="row">
                         <div className="col-6">
-                            <Features addDescription={this.addDescription} />
+                            <Features
+                                addDescription={this.addDescription}
+                            />
                             <div className="features">
-                                {Object.keys(this.state.features).map(key => <OutputFeatures key={key} featureprop={this.state.features[key]} />)}
+                                {Object.keys(this.state.features).map(key => {/* Whenever there is something in state, we are going to map over and for each render this: */ },
+                                    <OutputFeatures key={key} featureprop={this.state.features[key]} />
+                                )}
                             </div>
+                            <div className="features">Hello<OutputFeatures featureprop={this.state.features} /></div>
                         </div>
                         <div className="col-6">
 
