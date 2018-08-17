@@ -29,7 +29,7 @@ class App extends React.Component {
         //1. Take a copy of state
         const featureState = { ...this.state.features };
         //2. Update the state
-        featureState[key] = null;
+        delete featureState[key];
         //3. Update state
         this.setState({
             features: featureState
@@ -45,11 +45,11 @@ class App extends React.Component {
                                 addDescription={this.addDescription}
                             />
                             <div className="features">
-                                {Object.keys(this.state.features).map(key => {/* Whenever there is something in state, we are going to map over and for each render this: */ },
-                                    <OutputFeatures key={key} featureprop={this.state.features[key]} />
+                                {/* Whenever there is something in state, we are going to map over and for each render this: */}
+                                {Object.keys(this.state.features).map(key =>
+                                    <OutputFeatures key={key} index={key} featureprop={this.state.features[key]} deleteF={this.deleteFeature} />
                                 )}
                             </div>
-                            <div className="features">Hello<OutputFeatures featureprop={this.state.features} /></div>
                         </div>
                         <div className="col-6">
 
