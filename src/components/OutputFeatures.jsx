@@ -7,7 +7,7 @@ class OutputFeatures extends React.Component {
     }
     render() {
         return (
-            <div className="container-features">
+            <div className="output-features">
                 <div className="col-6">
                     {this.props.featureprop.feature}
                 </div>

@@ -8,9 +8,7 @@ import OutputFeatures from './components/OutputFeatures';
 class App extends React.Component {
     state = {
         //Features will be an object full of diferent features:
-        features: [
-            {}
-        ],
+        features: {},
     }
     //We need a method, that updates state. This method is written bellow:
     addDescription = FeatureThatHasBeenAddedInFeaturesFormInputFieldAndLabelIncluded => {
