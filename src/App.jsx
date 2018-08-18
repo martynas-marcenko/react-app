@@ -3,12 +3,14 @@ import './App.css';
 import Features from './components/Features';
 import Result from './components/Result';
 import OutputFeatures from './components/OutputFeatures';
-
+import Benefits from './components/Benefits';
+import OutputBenefits from './components/OutputBenefits';
 
 class App extends React.Component {
     state = {
         //Features will be an object full of diferent features:
         features: {},
+        benefits: {},
     }
     //We need a method, that updates state. This method is written bellow:
     addDescription = FeatureThatHasBeenAddedInFeaturesFormInputFieldAndLabelIncluded => {
@@ -33,6 +35,16 @@ class App extends React.Component {
             features: featureState
         });
     };
+    addBenefit = BenefitThatHasBeenAddedInBenefitsCheckboxInput => {
+        const newBenefit = {
+            ...this.state.benefits
+        };
+        newBenefit[`benefit${Date.now()}`] = BenefitThatHasBeenAddedInBenefitsCheckboxInput;
+        this.setState({
+            benefit: newBenefit,
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -50,12 +62,14 @@ class App extends React.Component {
                             </div>
                         </div>
                         <div className="col-6">
-
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-6">
-                            <Result />
+                        <Benefits addBenefit={this.addBenefit} />
+                        <div className="benefits">
+                            {Object.keys(this.state.benefits).map(key =>
+                                <OutputBenefits key={key} index={key} benefitprop={this.state.benefits[key]} />
+                            )}
                         </div>
                     </div>
                 </div>
