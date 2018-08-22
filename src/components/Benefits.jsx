@@ -15,28 +15,29 @@ class Benefits extends React.Component {
         this.setState(prevState => ({ isToggleOn: !prevState.isToggleOn }));
         const benefits = {
             benefit: this.props.benefit,
-            icon: 'https://cdn.shopify.com/s/files/1/1749/1581/t/3/assets/Nuorishing-1493915879070.svg?3614303732377407379',
+            icon: this.props.url,
         };
         this.props.addBenefit(benefits);
     }
 
     render() {
         return (
-            <div>
+            <div className="benefit-select-item">
                 <div className="benefit">
                     {this.props.benefit}
                 </div>
-                {this.state.isToggleOn ? (
-                    <button onClick={this.handleClick}>
-                        +
-                    </button>
-                )
-                    : (
-                        <button onClick={this.handleClick}>
+                <div className="benefit-button">
+                    {this.state.isToggleOn ? (
+                        <button type="button" onClick={this.handleClick}>
                             +
                         </button>
-                    )
-                }
+                    ) : (
+                            <button type="button" onClick={this.handleClick}>
+                                +
+                            </button>
+                        )
+                    }
+                </div>
             </div>
         );
     }

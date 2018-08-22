@@ -7,23 +7,13 @@
     height: 3em;
     color: #fff;
     cursor: pointer;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
     padding: 0rem 1.5rem;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-transition: background-color .15s, color .15s ease-in-out;
     transition: background-color .15s, color .15s ease-in-out;
 }
 
@@ -53,4 +43,24 @@
 
 .ui-button i {
     padding-right: 1rem;
+}
+
+.icon {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    transition: background-color .15s, color .15s ease-in-out;
+    padding: 0;
+}
+
+.icon svg {
+    height: 1rem;
+    fill: rgba(7, 24, 51, 0.25);
+}
+
+.icon svg:hover {
+    fill: rgba(7, 24, 51, 0.50);
 }

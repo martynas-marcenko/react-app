@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Bin from './Bin';
+import './outputbenefits.css';
 
 class OutputBenefits extends React.Component {
     handleClick = () => {
@@ -7,15 +8,14 @@ class OutputBenefits extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className="col-6">
-                    {this.props.benefitprop.benefit}
+            <div className="benefit-list-item">
+                <div className="left-side">
+                    <img src={this.props.benefitprop.icon} />
+                    <span>{this.props.benefitprop.benefit}</span>
                 </div>
-                <div className="col-6">
-                    <button className="ui-button" onClick={this.handleClick}>
-                        Remove Benefit
+                <button className="icon" onClick={this.handleClick}>
+                    <Bin />
                 </button>
-                </div>
             </div>
         );
     }

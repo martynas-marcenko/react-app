@@ -1,4 +1,5 @@
 import React from 'react';
+import Bin from './Bin';
 import './outputfeatures.css';
 
 class OutputFeatures extends React.Component {
@@ -7,13 +8,13 @@ class OutputFeatures extends React.Component {
     }
     render() {
         return (
-            <div className="output-features">
-                <div className="col-6">
+            <div className="list-item">
+                <div className="left">
                     {this.props.featureprop.feature}
                 </div>
-                <div className="col-6">
-                    <button className="ui-button" onClick={this.handleClick}>
-                        Remove Feature
+                <div className="right">
+                    <button className="icon" onClick={this.handleClick}>
+                        <Bin />
                     </button>
                 </div>
             </div>

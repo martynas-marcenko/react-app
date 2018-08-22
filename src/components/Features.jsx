@@ -1,4 +1,5 @@
 import React from 'react';
+import Bin from './Bin.jsx';
 import './form.css';
 import './button.css'
 
@@ -22,7 +23,9 @@ class Features extends React.Component {
                     </div>
                 </div>
                 <div className="buttonWrapper">
-                    <button className="ui-button" type="submit">+ Add Feature</button>
+                    <button className="ui-button" type="submit">
+                        Add
+                    </button>
                 </div>
             </form>
         );

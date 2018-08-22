@@ -45,3 +45,10 @@ form {
     flex: 1 1 50%;
     justify-content: flex-end;
 }
+
+.field-100 {
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
