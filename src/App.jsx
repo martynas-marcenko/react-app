@@ -6,9 +6,17 @@ import OutputFeatures from './components/OutputFeatures';
 import Benefits from './components/Benefits';
 import OutputBenefits from './components/OutputBenefits';
 import KeyIngredients from './components/KeyIngredients';
-import OutputKeyIngredients from './components/OutputKeyIngredients.jsx';
+import OutputKeyIngredients from './components/OutputKeyIngredients';
 import AllIngredients from './components/AllIngredients';
 import OutputAllIngredients from './components/OutputAllIngredients';
+import KeyIngredientsHtml from './components/htmlProps/KeyIngredientsHtml';
+import BenefitsHtml from './components/htmlProps/BenefitsHtml';
+import FeaturesHtml from './components/htmlProps/FeaturesHtml'
+
+const one = '<div class="container"><div class="row"><div class="col-md-6"><div class="column-content"><div class="benefits-container"><div class="desc-title type-gamma">Benefits</div><div class="benefits-list">';
+const two = '</div></div><div class="features-container"><div class="desc-title type-gamma">Features</div><div class="features-list">';
+const three = '</div></div></div></div><div class="col-md-6"><div class="column-content"><div class="ingredients-container"><div class="ingredients-header"><div class="type-gamma">Key ingredients</div></div>';
+const four = '<div class="ingredients-footer"><div class="type-zeta text-medium"><a>See all</a></div></div></div></div></div></div></div>';
 
 class App extends React.Component {
     state = {
@@ -300,6 +308,24 @@ class App extends React.Component {
                                     <OutputAllIngredients key={key} index={key} allingredientsprop={this.state.allingredients.allingredients1} />
                                 )}
                             </div>
+                        </div>
+                    </div>
+                    <div className="row section">
+                        <div className="col-6">
+                            {one}
+                            {Object.keys(this.state.benefits).map(key =>
+                                <BenefitsHtml key={key} index={key} benefitprop={this.state.benefits[key]} deleteB={this.deleteBenefit} />
+                            )}
+                            {two}
+                            {Object.keys(this.state.features).map(key =>
+                                <FeaturesHtml key={key} index={key} featureprop={this.state.features[key]} deleteF={this.deleteFeature} />
+                            )}
+                            {three}
+                            {Object.keys(this.state.keyingredients).map(key =>
+                                <KeyIngredientsHtml key={key} index={key} keyingredientsprop={this.state.keyingredients[key]} deleteI={this.deleteKeyIngredient} />
+                            )}
+                            {four}
+
                         </div>
                     </div>
                 </div>
