@@ -72,3 +72,10 @@ textarea {
     white-space: pre-wrap;
     resize: vertical;
 }
+
+.demo-editor {
+    min-height: 150px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    border-radius: 2px;
+}

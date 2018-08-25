@@ -13,11 +13,18 @@ import KeyIngredientsHtml from './components/htmlProps/KeyIngredientsHtml';
 import BenefitsHtml from './components/htmlProps/BenefitsHtml';
 import FeaturesHtml from './components/htmlProps/FeaturesHtml'
 
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 const one = '<div class="container"><div class="row"><div class="col-md-6"><div class="column-content"><div class="benefits-container"><div class="desc-title type-gamma">Benefits</div><div class="benefits-list">';
 const two = '</div></div><div class="features-container"><div class="desc-title type-gamma">Features</div><div class="features-list">';
 const three = '</div></div></div></div><div class="col-md-6"><div class="column-content"><div class="ingredients-container"><div class="ingredients-header"><div class="type-gamma">Key ingredients</div></div>';
-const four = '<div class="ingredients-footer"><div class="type-zeta text-medium"><a>See all</a></div></div></div></div></div></div></div>';
-
+const four = '<div class="ingredients-footer"><div class="type-zeta text-medium"><a data-toggle="modal" data-target="#modalProductInfo-03" href="#">See all</a></div></div></div></div></div></div></div>';
+const five = '<div class="modal fade" id="modalProductInfo-03" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span class="icon icon-clear"></span> </button> </div><div class="modal-body">'
+const six = '</div></div></div></div>';
 class App extends React.Component {
     state = {
         //Features will be an object full of diferent features:
@@ -25,6 +32,7 @@ class App extends React.Component {
         benefits: {},
         keyingredients: {},
         allingredients: {},
+        editorState: EditorState.createEmpty(),
     }
     //We need a method, that updates state. This method is written bellow:
     addDescription = FeatureThatHasBeenAddedInFeaturesFormInputFieldAndLabelIncluded => {
@@ -104,8 +112,14 @@ class App extends React.Component {
             allingredients: newIngredient, //New feature is fx.: feature2018275198275: {feature: name of the feature}
         });
     };
+    onEditorStateChange: Function = (editorState) => {
+        this.setState({
+            editorState,
+        });
+    };
 
     render() {
+        const { editorState } = this.state;
         return (
             <div className="App">
                 <div className="container">
@@ -296,9 +310,13 @@ class App extends React.Component {
                     <div className="row section">
                         <div className="col-6">
                             <div className="all-ingredients section">
-                                <AllIngredients
-                                    addAllIngredients={this.addAllIngredients}
+                                <Editor
+                                    editorState={editorState}
+                                    wrapperClassName="demo-wrapper"
+                                    editorClassName="demo-editor"
+                                    onEditorStateChange={this.onEditorStateChange}
                                 />
+
                             </div>
                         </div>
                         <div className="col-6">
@@ -325,7 +343,9 @@ class App extends React.Component {
                                 <KeyIngredientsHtml key={key} index={key} keyingredientsprop={this.state.keyingredients[key]} deleteI={this.deleteKeyIngredient} />
                             )}
                             {four}
-
+                            {five}
+                            {draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+                            {six}
                         </div>
                     </div>
                 </div>
